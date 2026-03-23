@@ -1,0 +1,16 @@
+services:
+  gitea:
+    image: gitea/gitea:latest
+    container_name: problem
+    restart: unless-stopped
+    environment:
+      - USER_UID=1000
+      - USER_GID=1000
+      - GITEA__server__SSH_PORT=2222
+    volumes:
+      - ./gitea-data:/data
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - "2026:3000"   # 웹
+      - "2222:22"     # SSH (호스트 2222 → 컨테이너 22)
