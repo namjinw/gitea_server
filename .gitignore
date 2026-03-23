@@ -1,0 +1,9 @@
+gitea-data/
+*.db
+*.log
+*.pem
+*.key
+.env
+**/objects/
+**/refs/
+**/logs/
